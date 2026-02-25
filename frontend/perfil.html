@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Geovanni's Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Meu Perfil</h1>
+            
+            <div id="perfil-info">
+                <p><strong>Nome:</strong> <span id="nome"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Cadastrado em:</strong> <span id="criado"></span></p>
+            </div>
+            <a href="produtos.html">
+                <button class="btn-primary" style="margin-bottom: 10px;">Ver Produtos</button>
+            </a>
+            
+            <button onclick="fazerLogout()" class="btn-secondary">Sair</button>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Verificar se está logado
+        redirecionarSeNaoLogado();
+        
+        /**
+         * Carrega perfil do usuário logado.
+         * 
+         * @returns {Promise<void>} Se a operação for bem sucedida ou não.
+         * @throws {Error} Se a operação for mal sucedida.
+         */
+        async function carregarPerfil() {
+            const result = await getPerfil();
+            
+            if (result.ok) {
+                const usuario = result.data;
+                document.getElementById('nome').textContent = usuario.nome;
+                document.getElementById('email').textContent = usuario.email;
+                document.getElementById('criado').textContent = 
+                    new Date(usuario.criado).toLocaleDateString('pt-BR');
+            } else {
+                alert('Erro ao carregar perfil');
+                await logout();
+                window.location.href = 'login.html';
+            }
+        }
+        
+        /**
+         * Faz o logout e redireciona para a página de login.
+         * @return {Promise<void>} Promessa de logout.
+         */
+        async function fazerLogout() {
+            await logout();
+            window.location.href = 'login.html';
+        }
+        
+        // Carregar ao iniciar
+        carregarPerfil();
+    </script>
+</body>
+</html>

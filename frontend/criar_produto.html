@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Produto - Geovanni's Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Novo Produto</h1>
+            <p class="texto-centro" style="margin-bottom: 20px;">Adicione uma nova opção ao cardápio</p>
+            
+            <div id="mensagem" class="mensagem"></div>
+            
+            <form id="form-produto">
+                <div class="form-group">
+                    <label for="nome">Nome do Produto:</label>
+                    <input type="text" id="nome" required placeholder="Ex: Pizza Calabresa">
+                </div>
+
+                <div class="form-group">
+                    <label for="marca">Marca (ou Tipo):</label>
+                    <input type="text" id="marca" required placeholder="Ex: Premium">
+                </div>
+                
+                <div class="form-group">
+                    <label for="preco">Preço (R$):</label>
+                    <input type="number" id="preco" step="0.01" min="0.01" required placeholder="0.00">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria:</label>
+                    <select id="categoria" required>
+                        <option value="">Carregando...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="descricao">Descrição:</label>
+                    <textarea id="descricao" required placeholder="Detalhes do produto (mínimo 20 caracteres)..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="imagem">Foto do Produto:</label>
+                    <input type="file" id="imagem" accept="image/*">
+                </div>
+                
+                <button type="submit" class="btn-primary">Cadastrar</button>
+                
+                <a href="produtos.html">
+                    <button type="button" class="btn-secondary">Cancelar</button>
+                </a>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/criar_produtos.js"></script>
+</body>
+</html>

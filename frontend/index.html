@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - Geovanni's Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card" style="text-align: center;">
+            <h1>Geovanni's Pizza</h1>
+            <h2>Bem-vindo!</h2>
+            
+            <p style="margin-bottom: 30px; color: #666;">
+                O melhor sistema de gerenciamento de pizzaria.
+                Faça login para acessar seu perfil.
+            </p>
+            
+            <a href="login.html">
+                <button class="btn-primary" style="margin-bottom: 15px;">Entrar na minha conta</button>
+            </a>
+            
+            <a href="cadastro.html">
+                <button class="btn-secondary">Criar nova conta</button>
+            </a>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Se o usuário já tiver token, manda direto pro perfil
+        if (isAuthenticated()) {
+            window.location.href = 'perfil.html';
+        }
+    </script>
+</body>
+</html>

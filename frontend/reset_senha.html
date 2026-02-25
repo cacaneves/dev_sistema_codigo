@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Senha - Geovanni's Pizza</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Nova Senha</h1>
+            <p class="texto-centro">Defina sua nova senha.</p>
+            
+            <div id="mensagem" class="mensagem"></div>
+            
+            <form id="form-reset">
+                <div class="form-group">
+                    <label for="nova_senha">Nova Senha:</label>
+                    <input type="password" id="nova_senha" required minlength="8" placeholder="Mínimo 8 caracteres">
+                </div>
+                
+                <button type="submit" class="btn-primary">Alterar Senha</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/api.js"></script>
+    <script src="js/reset_senha.js"></script>
+</body>
+</html>
